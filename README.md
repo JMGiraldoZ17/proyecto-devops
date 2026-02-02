@@ -1,11 +1,17 @@
-# Proyecto-devops
+# Proyecto DevOps
 
-Este es un proyecto para realizar estudios sobre devops integrando CI y CD
+Este repositorio se utiliza para prácticas de DevOps enfocadas en integración continua (CI) y despliegue continuo (CD).
 
-Para manejo de ramas por favor seguir la siguiente estructura
+## Estrategia de ramas
 
-Master -> Rama de produccion no realizar modificaciones directas
-Dev -> Lanzar solamente hotfix en caso de que el ambiente se caiga
-Feature/X -> Realizar los desarrollos explicando en el nombre de la rama que se desea hacer "X"
+- master → Producción (solo merges vía PR)
+- dev → Integración
+- feature/* → Desarrollo de funcionalidades
 
-Tenga en cuenta que no se deben hacer merge desde local hacia las ramas de ambientes "Dev y Master" Usar PR con aprobacion de JMGiraldoZ17
+## Reglas de trabajo
+
+- No se permiten commits directos a `master` ni `dev`
+- Todos los cambios deben realizarse mediante Pull Request
+- Los PR deben ser aprobados antes de merge
+- Hotfix solo desde ramas dedicadas (hotfix/*)
+\
