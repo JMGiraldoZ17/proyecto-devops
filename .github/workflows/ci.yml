@@ -25,3 +25,18 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t devops-demo .
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Tag Docker image
+        run: |
+          docker tag devops-demo ghcr.io/jmgiraldoz17/proyecto-devops:dev
+
+      - name: Push Docker image
+        run: |
+          docker push ghcr.io/jmgiraldoz17/proyecto-devops:dev
