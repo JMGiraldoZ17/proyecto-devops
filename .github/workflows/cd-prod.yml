@@ -1,0 +1,16 @@
+name: CD Prod
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-prod:
+    runs-on: ubuntu-latest
+    environment: prod
+
+    steps:
+      - name: Deploy to PROD
+        run: |
+          echo "Deploying image ghcr.io/jmgiraldoz17/proyecto-devops:1.0.0 to PROD"
