@@ -35,9 +35,8 @@ jobs:
 
       - name: Tag Docker image
         run: |
-          docker tag devops-demo ghcr.io/${{ github.repository }}:dev
+          docker tag devops-demo ghcr.io/jmgiraldoz17/proyecto-devops:dev
 
       - name: Push Docker image
         run: |
-          docker push ghcr.io/${{ github.repository }}:dev
-
+          docker push ghcr.io/jmgiraldoz17/proyecto-devops:dev
