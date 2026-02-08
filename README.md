@@ -1,17 +1,35 @@
 # Proyecto DevOps
 
-Este repositorio se utiliza para prácticas de DevOps enfocadas en integración continua (CI) y despliegue continuo (CD).
+Este proyecto demuestra un flujo completo de CI/CD.
+
+## Tecnologías
+- Java (Quarkus)
+- Maven
+- Docker
+- GitHub Actions
+- GitHub Container Registry
+
+## Flujo CI/CD
+
+### CI
+- Se ejecuta en Pull Requests
+- Compila el proyecto con Maven
+- Construye la imagen Docker
+- Evita merges si el build falla
+
+### CD Dev
+- Se ejecuta automáticamente al hacer merge en `dev`
+- Simula el despliegue al ambiente de desarrollo
+
+### CD Prod
+- Se ejecuta al hacer merge en `master`
+- Requiere aprobación manual
+- Simula el despliegue a producción
 
 ## Estrategia de ramas
+- `feature/*` → desarrollo
+- `dev` → integración
+- `master` → producción
 
-- master → Producción (solo merges vía PR)
-- dev → Integración
-- feature/* → Desarrollo de funcionalidades
-
-## Reglas de trabajo
-
-- No se permiten commits directos a `master` ni `dev`
-- Todos los cambios deben realizarse mediante Pull Request
-- Los PR deben ser aprobados antes de merge
-- Hotfix solo desde ramas dedicadas (hotfix/*)
-\
+## Objetivo
+Simular un pipeline profesional separando CI y CD, con control de calidad y despliegue por ambientes.
