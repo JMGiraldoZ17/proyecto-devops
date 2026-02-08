@@ -11,6 +11,14 @@ jobs:
     environment: dev
 
     steps:
-      - name: Deploy to DEV
-        run: |
-          echo "Deploying image ghcr.io/jmgiraldoz17/proyecto-devops:dev to DEV"
+      - name: Deploy to EC2 via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            docker pull ${{ secrets.GHCR_IMAGE }}
+            docker stop devops-app || true
+            docker rm devops-app || true
+            docker run -d --name devops-app -p 8080:8080 ${{ secrets.GHCR_IMAGE }}
